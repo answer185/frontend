@@ -1,0 +1,13 @@
+{
+  "name": "frontend",
+  "version": "1.1.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "rm -rf ../answer185.github.io/frontend && vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^1.5.4"
+  }
+}
