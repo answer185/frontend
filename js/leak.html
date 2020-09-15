@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>内存泄漏 | 前端总结</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    
+    <meta name="description" content="分享知识，共同学习。">
+    <link rel="preload" href="/frontend/assets/css/0.styles.2f432dc4.css" as="style"><link rel="preload" href="/frontend/assets/js/app.f4101b8b.js" as="script"><link rel="preload" href="/frontend/assets/js/2.4f3b5761.js" as="script"><link rel="preload" href="/frontend/assets/js/16.565fcad3.js" as="script"><link rel="prefetch" href="/frontend/assets/js/10.c841fef3.js"><link rel="prefetch" href="/frontend/assets/js/11.8843e8e7.js"><link rel="prefetch" href="/frontend/assets/js/12.26489263.js"><link rel="prefetch" href="/frontend/assets/js/13.a1dd3886.js"><link rel="prefetch" href="/frontend/assets/js/14.3bfa6d3f.js"><link rel="prefetch" href="/frontend/assets/js/15.50fda6ac.js"><link rel="prefetch" href="/frontend/assets/js/17.8b7209d6.js"><link rel="prefetch" href="/frontend/assets/js/18.4a205a18.js"><link rel="prefetch" href="/frontend/assets/js/3.2468536f.js"><link rel="prefetch" href="/frontend/assets/js/4.1cfc2f80.js"><link rel="prefetch" href="/frontend/assets/js/5.17268e37.js"><link rel="prefetch" href="/frontend/assets/js/6.fbf0bca7.js"><link rel="prefetch" href="/frontend/assets/js/7.3a375575.js"><link rel="prefetch" href="/frontend/assets/js/8.81afddae.js"><link rel="prefetch" href="/frontend/assets/js/9.228d0f7c.js">
+    <link rel="stylesheet" href="/frontend/assets/css/0.styles.2f432dc4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/frontend/" class="home-link router-link-active"><!----> <span class="site-name">前端总结</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/frontend/html/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/frontend/js/" class="nav-link router-link-active">
+  JS
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/frontend/html/" class="nav-link">
+  HTML
+</a></div><div class="nav-item"><a href="/frontend/js/" class="nav-link router-link-active">
+  JS
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/frontend/js/leak.html" aria-current="page" class="active sidebar-link">内存泄漏</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/frontend/js/BOM.html" class="sidebar-link">BOM</a></li><li><a href="/frontend/js/DOM.html" class="sidebar-link">DOM</a></li><li><a href="/frontend/js/function.html" class="sidebar-link">函数</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="内存泄漏"><a href="#内存泄漏" class="header-anchor">#</a> 内存泄漏</h3> <p>内存泄漏（Memory Leak）是指程序中己动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。</p> <p><strong>常见场景：</strong></p> <ol><li>意外的全局变量：使用未声明的变量，从而创建了一个全局变量，这个变量一直留在内存中无法被回收。</li> <li>被遗忘的计时器或回调函数：设置了setInterval 定时器，但是忘记取消它。如果循环函数用到外部变量，那这些变量会被一直留在内存中，无法被回收。</li> <li>脱离 DOM 的引用：获取一个 DOM 元素的引用，而后面这个元素被删除，由于我们一直保留了对这个元素的引用，所以它也无法被回收。</li> <li>闭包：不合理的使用闭包，从而导致某些变量一直被留在内存当中。</li></ol></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/frontend/js/BOM.html">
+        BOM
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/frontend/assets/js/app.f4101b8b.js" defer></script><script src="/frontend/assets/js/2.4f3b5761.js" defer></script><script src="/frontend/assets/js/16.565fcad3.js" defer></script>
+  </body>
+</html>
