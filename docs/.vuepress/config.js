@@ -2,7 +2,6 @@ module.exports = {
   title: "前端总结",
   description: "分享知识，共同学习。",
   base: "/frontend/",
-  dest: "../answer185.github.io/frontend",
   markdown: {
     lineNumbers: true
   },
@@ -13,15 +12,30 @@ module.exports = {
       { text: "JS", link: "/js/" },
     ],
     sidebar: {
-      '/html/': [
-        {
-            title: "结构化和语义化",
-            path: "/html/structure"
-          }
-      ],
-      '/js/': [
-        {title: "基础", path: "/js/leak"}
-      ]   
+      '/html/': getHtmlSidebar(),
+      '/js/': getJSSidebar()  
     }
   }
 };
+
+function getHtmlSidebar() {
+  return [
+    'structure',
+    'element'
+  ]
+}
+
+function getJSSidebar() {
+  return [
+    {title: '基础', collapsable: true, children: getJSBasicSidebar()},
+    {title: '开发', collapsable: true, children: getJSDevSidebar()},
+  ]
+}
+
+function getJSBasicSidebar() {
+  return ['leak', 'BOM', 'DOM', 'function'];
+}
+
+function getJSDevSidebar() {
+  return ['async', 'message', 'draw', 'animation', 'scroll'];
+}
