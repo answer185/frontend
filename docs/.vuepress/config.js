@@ -9,7 +9,8 @@ module.exports = {
   displayAllHeaders: false,
   themeConfig: {
     nav: [
-      { text: "HTML", link: "/html/" }
+      { text: "HTML", link: "/html/" },
+      { text: "JS", link: "/js/" },
     ],
     sidebar: {
       '/html/': [
@@ -17,7 +18,10 @@ module.exports = {
             title: "结构化和语义化",
             path: "/html/structure"
           }
-      ]    
+      ],
+      '/js/': [
+        {title: "基础", path: "/js/leak"}
+      ]   
     }
   }
 };
